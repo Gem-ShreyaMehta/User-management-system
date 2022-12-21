@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div style="color:red;">@TempData["message"]</div>
+<a asp-controller="Home" asp-action="Register">Add User</a>
+<style>
+table {
+  table-layout: fixed;
+  width: 120px;
+  border: 1px solid brown;
+}
+
+td {
+  border: 1px solid brown;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+</style>
+
+<table class="table table-striped table-hover">
+    <br /><br />
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.emplist)
+        {
+            <tr>
+                <td>@item.fullname</td>
+                <td>@item.email</td>
+               
+            </tr>
+        }
+    </tbody>
+</table>
+

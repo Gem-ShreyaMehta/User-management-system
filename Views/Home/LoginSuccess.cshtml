@@ -1,0 +1,42 @@
+﻿@model IEnumerable<LoginPageViaRepositoryPattern.Models.Users>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h1>User Management System</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.fullname)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.email)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null)
+                {
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.fullname)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.email)
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+        <a asp-controller="Home" asp-action="Register">New Entry</a>
+    </div>
+</div>
+
